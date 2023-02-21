@@ -28,11 +28,21 @@ fs_extra.workspace = true
 criterion.workspace = true
 test-notifier.workspace = true
 pprof.workspace = true
+fake-file.workspace = true
 
+# Macro Bench Suite for the pipeline on a large file structure
 [[bench]]
-name = "pipeline"
-harness = false
+name = "pipeline_macro"
+harness = true
 
-[[bench]]
-name = "file_structure"
-harness = false
+# TODO (amiller68): Reimplement this benchmark with In-memory files (reduces IO overhead)
+# Micro Bench Suite for pipeline sections
+#[[bench]]
+#name = "pipeline_micro"
+#harness = false
+
+# Dev benchmark for generating random file structures
+# Ignored by default
+#[[bench]]
+#name = "file_structure"
+#harness = false

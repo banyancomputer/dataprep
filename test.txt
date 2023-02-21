@@ -1,0 +1,26 @@
+Setting up benchmarking directories...
+-> Bench Path: bench
+-> Input Path: bench/input
+-> Packed Path: bench/packed
+-> Unpacked Path: bench/unpacked
+Declaring desired file structures:
+-> Structures: simple
+-> Size: 1048576
+-> Max Width: 4
+-> Max Depth: 4
+Running correctness tests on w4_d4_s1048576_Balanced
+Finished benchmarking w4_d4_s1048576_Balanced
+Cleaning up benchmarking directories...
+Setting up benchmarking directories...
+-> Bench Path: bench
+-> Input Path: bench/input
+-> Packed Path: bench/packed
+-> Unpacked Path: bench/unpacked
+Declaring desired file structures:
+-> Structures: simple
+-> Size: 1048576
+-> Max Width: 4
+-> Max Depth: 4
+Running correctness tests on w4_d4_s1048576_Balanced
+Finished benchmarking w4_d4_s1048576_Balanced
+Cleaning up benchmarking directories...

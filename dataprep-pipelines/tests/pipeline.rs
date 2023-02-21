@@ -1,7 +1,5 @@
-use dataprep_pipelines::utils::{
-    fs::{FileStructure, FileStructureStrategy},
-    test::{pipeline_test, setup_test_structure},
-};
+use dataprep_pipelines::utils::test::{pipeline_test, setup_test_structure};
+use fake_file::{Strategy, Structure};
 use lazy_static::lazy_static;
 
 lazy_static! {
@@ -18,7 +16,7 @@ lazy_static! {
 mod test {
     use super::*;
 
-    const TEST_INPUT_SIZE: usize = 1024 * 1024; // 1MB
+    const TEST_INPUT_SIZE: usize = 1024; // 1 KBss
     const TEST_MAX_WIDTH: usize = 4;
     const TEST_MAX_DEPTH: usize = 4;
 
@@ -26,11 +24,11 @@ mod test {
     #[tokio::test]
     async fn test_pipeline() {
         // Define the file structure to test
-        let desired_structure = FileStructure::new(
+        let desired_structure = Structure::new(
             TEST_MAX_WIDTH, // width
             TEST_MAX_DEPTH, // depth
             TEST_INPUT_SIZE,
-            FileStructureStrategy::Balanced, // Balanced
+            Strategy::Balanced, // Balanced
         );
         println!("Setting up test structure: {:?}", desired_structure);
         // Setup the test structure
@@ -54,5 +52,5 @@ mod test {
         )
         .await;
     }
-    // TODO: (thea-exe) Add more tests - there might be a problem getting them to run in parallel
+    // TODO: (amiller68) Add more tests - there might be a problem getting them to run in parallel
 }

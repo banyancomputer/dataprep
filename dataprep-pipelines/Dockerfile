@@ -33,9 +33,9 @@ RUN mkdir -p bench/results
 # For now, defaults are fine
 
 # Echo a run command to the console for normal use
-RUN echo "cargo +nightly  criterion --bench pipeline" > run.sh
+RUN echo "cargo +nightly  criterion --bench pipeline" > benchmark.sh
 # Make the run command executable
-RUN chmod +x run.sh
+RUN chmod +x benchmark.sh
 
 # Echo a run profile command to the console for profiling
 RUN echo "cargo +nightly bench --bench pipeline  -- --profile-time=15" > run_profile.sh

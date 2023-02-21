@@ -3,6 +3,7 @@
 ## Dependencies
 - cargo
 - rustup
+- cargo-criterion
 - rust +nightly -- either make this the default or use `cargo +nightly <command>` for all commands
 
 ## Build the binary!
@@ -23,27 +24,6 @@ Unpack a file:
 dataprep unpack --input-dir <INPUT_DIR> --manifest-file <MANIFEST_FILE> --output-dir <OUTPUT_DIR>
 ```
 
-<<<<<<< HEAD
-## Format
-
-Make sure to run `cargo fmt` before committing. Run it in the package you want to format. (like, go into the `dataprep` directory and run `cargo fmt`)
-
-```bash
-cargo fmt # format code
-cargo clippy # lint code
-```
-
-## Test
-
-for unit tests
-```bash
-cargo test
-```
-for integration tests
-```bash
-cargo test --test integration
-```
-=======
 ## Contributing 
 Your PRs are welcome! Please make sure to run the following commands before committing:
 ```bash
@@ -128,7 +108,7 @@ docker run -it --rm -v dataprep-bench:/dataprep -w /dataprep dataprep-pipeline
 This will open a shell in the docker container. Now, you can run the benchmarks:
 ```bash
 # Run the throughput benchmark (if you want)
-./run.sh
+./benchmark.sh
 # Run the profiling benchmark
 ./run_profiling.sh
 ```
@@ -158,10 +138,3 @@ docker cp <container-id>:/dataprep/target/criterion/Throughput/unpack/w4_d4_s102
 Here's an exmaple of what the flamegraph looks like. I made this using the docker container, so it might not be representative of the performance on your machine.
 ![flamegraph](.github/flamegraph.svg)
 
-
-
-
-
-
-
->>>>>>> origin/bench

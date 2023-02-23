@@ -66,7 +66,7 @@ Any machine with rust should be able to run the throughput benchmarks.
 By default, scratch space is created in a `bench` directory
 ```bash
 # If you want to load your own config, you can do so by running
-source env/env.benchmark
+source env/env.pipeline.benchmark
 # Then bench the pipeline
 cargo +nightly criterion --bench pipeline
 ```
@@ -82,7 +82,7 @@ The flamegraphs will be in the `target/criterion/<name-of-benchmark>/profile/fla
 #### Linux
 ```bash
 # Remember to source your env file if you want to load your own config
-source env/env.benchmark
+source env/env.pipeline.benchmark
 # Then bench the pipeline
 cargo +nightly bench --bench pipeline -- --profile-time 30 # Or $BENCH_PROFILER_TIME if that's set
 ```

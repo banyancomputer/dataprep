@@ -1,7 +1,6 @@
 [workspace]
 members = [
     "dataprep",
-    "dataprep-bench",
     "dataprep-pipelines"
 ]
 [workspace.package]
@@ -13,7 +12,6 @@ repository = "https://github.com/banyancomputer/dataprep"
 [workspace.dependencies]
 # Wokrspace members
 dataprep-pipelines = { version = "0.1.0", path = "./dataprep-pipelines" }
-dataprep-bench = { version = "0.1.0", path = "./dataprep-bench" }
 # Dependencies
 clap = { version = "4.0.32", features = ["derive"] }
 anyhow = { version = "1", features = ["backtrace"] }

@@ -549,21 +549,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "dataprep-bench"
-version = "0.1.0"
-dependencies = [
- "anyhow",
- "clap 4.1.4",
- "dataprep-pipelines",
- "fake-file",
- "fs_extra",
- "serde",
- "serde_json",
- "strum",
- "tokio",
-]
-
-[[package]]
 name = "dataprep-pipelines"
 version = "0.1.0"
 dependencies = [

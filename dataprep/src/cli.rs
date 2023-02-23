@@ -24,6 +24,11 @@ pub enum Commands {
         /// fed into: https://docs.rs/jwalk/latest/jwalk/struct.WalkDirGeneric.html#method.follow_links
         #[arg(short, long, help = "follow symlinks", default_value = "false")]
         follow_links: bool,
+
+        /// Should we keep and output stats about the packing process?
+        /// If true, will output a file called "stats.json" in the current directory
+        #[arg(long, help = "output stats", default_value = "false")]
+        output_stats: bool,
     },
     Unpack {
         /// input file root
@@ -37,6 +42,11 @@ pub enum Commands {
         /// output directory to repopulate with reinflated files
         #[arg(short, long, help = "output directory")]
         output_dir: PathBuf,
+
+        /// Should we keep and output stats about the packing process?
+        /// If true, will output a file called "stats.json" in the current directory
+        #[arg(long, help = "output stats", default_value = "false")]
+        output_stats: bool,
     },
 }
 

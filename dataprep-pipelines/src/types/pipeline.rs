@@ -61,8 +61,16 @@ pub struct EncryptionPart {
     )]
     pub identity: age::x25519::Identity,
 }
+// TODO danger will robinson
+impl Debug for EncryptionPart {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("EncryptionPart")
+            .field("identity", &self.identity.to_string().expose_secret())
+            .finish()
+    }
+}
 
-#[derive(Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 /// Metadata generated when a file is compressed and encrypted
 pub struct EncryptionMetadata {
     /// The parts of the file that were encrypted and associated metadata
@@ -70,10 +78,19 @@ pub struct EncryptionMetadata {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct CarsWriterLocation {
+    /// car_file is the car file we're writing to
+    /// TODO address these by CommP and do the fr32
+    pub(crate) car_file: PathBuf,
+    /// offset is the offset in the car file we're writing to
+    pub(crate) offset: usize,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
 /// Metadata that is emitted on successful write into new filesystem
 pub struct WriteoutMetadata {
-    /// mapping from compressed and encrypted chunks to their new locations
-    pub chunk_locations: Vec<PathBuf>,
+    /// mapping from compressed and encrypted chunks to their new locations in car files
+    pub car_locations: Vec<CarsWriterLocation>,
 }
 
 // /// this struct is used to build up the data processing steps for a file
@@ -89,7 +106,7 @@ pub struct WriteoutMetadata {
 // }
 
 /// this struct is the completed data processing steps for a file
-#[derive(Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct DataProcess {
     /// describes how we compressed the entire file
     pub compression: CompressionMetadata,

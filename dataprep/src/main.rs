@@ -36,10 +36,7 @@ async fn main() {
             let elapsed = now.elapsed().as_secs_f64();
             // If output_stats is true, output a stats.txt file
             if output_stats {
-                // Create the stats file
-                let stats_file = PathBuf::from("stats.txt");
-                // Write the stats to the file
-                std::fs::write(stats_file, format!("Completed in: {:?} s", elapsed)).unwrap();
+                println!("Completed in: {:?} s", elapsed);
             }
         }
         cli::Commands::Unpack {
@@ -55,10 +52,7 @@ async fn main() {
             let elapsed = now.elapsed().as_secs_f64();
             // If output_stats is true, output a stats.txt file
             if output_stats {
-                // Create the stats file
-                let stats_file = PathBuf::from("stats.txt");
-                // Write the stats to the file
-                std::fs::write(stats_file, format!("Completed in: {:?} s", elapsed)).unwrap();
+                println!("Completed in: {:?} s", elapsed);
             }
         }
     }
